@@ -14,8 +14,8 @@ void main(List<String> arguments) {
     }
   }
   
-  int max = mass[0].length;
-  int min = mass[0].length;
+  int max = 0;
+  int min = 0;
   
   for(int i = 1; i < mass.length; ++i){
     if(mass[i].length < mass[min].length){
