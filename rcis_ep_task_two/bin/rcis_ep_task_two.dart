@@ -1,7 +1,7 @@
 import 'package:rcis_ep_task_two/rcis_ep_task_two.dart' as rcis_ep_task_two;
 import 'dart:io';
 
-void main(List<String> arguments) {
+void main() {
   List<int> mass = [];
   
   int write = -1;
@@ -12,8 +12,8 @@ void main(List<String> arguments) {
     try{
       stdout.write("Введите число, если хотите завершить программу введите '0': ");
       write = int.parse(stdin.readLineSync()!);
-    } catch (formatException) {
-      print("Ошибка.");
+    } catch (e) {
+      print("Ошибка. Введено не число...");
       continue;
     }
 
@@ -23,10 +23,14 @@ void main(List<String> arguments) {
       prod *= write;
     }
   }
-
-  int aver = sum ~/ mass.length;
+  int aver = 0;
+  try{
+    aver = sum ~/ mass.length;
+  } catch (e) {
+    print("Ошибка. Массив пустой");
+  }
   print("Массив: $mass");
   print("Сумма элементов: $sum");
-  print("Произведение элементов: $prod");
+  print("Произведение элементов: ${mass.length != 0 ? prod : 0}");
   print("Среднее арифметическое элементов: $aver"); 
 }

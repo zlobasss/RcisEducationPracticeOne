@@ -1,13 +1,13 @@
 import 'package:rcis_ep_task_three/rcis_ep_task_three.dart' as rcis_ep_task_three;
 import 'dart:io';
 
-void main(List<String> arguments) {
+void main() {
   List<String> mass = [];
 
   String write = "0";
 
   while (write != ""){
-    stdout.write("Введите элемент массива, для завершения введите '': ");
+    stdout.write("Введите элемент массива, для завершения введите пустую строку: ");
     write = stdin.readLineSync()!;
     if(write != ""){
       mass.add(write);
@@ -27,6 +27,10 @@ void main(List<String> arguments) {
   }
 
   print("Массив: $mass");
-  print("Элемент с минимальной длиной: ${mass[min]}");
-  print("Элемент с максимальной длиной: ${mass[max]}");
+  try{
+    print("Элемент с минимальной длиной: ${mass[min]}");
+    print("Элемент с максимальной длиной: ${mass[max]}");
+  } catch (e){
+    print("Ошибка. Отстуствуют элементы в массиве");
+  }
 }
